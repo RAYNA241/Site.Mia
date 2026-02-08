@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis - [Nom de la Chaîne Gaming]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: white;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #00ff00;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: #ff6600;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.avis-section {
+    background-color: #1c1c1c;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.avis-section h2 {
+    font-size: 2em;
+    color: #ff6600;
+}
+
+.avis-section p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.avis-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #ff6600;
+    font-size: 1.1em;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.submit-btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #ff4500;
+}
+
+
+.avis-list {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.avis-item {
+    background-color: #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.avis-name {
+    font-size: 1.1em;
+    color: #ff6600;
+}
+
+.avis-rating {
+    font-size: 1.2em;
+}
+
+.avis-text {
+    font-size: 1.1em;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+
+footer {
+    background-color: #1f1f1f;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    color: #aaa;
+    margin: 0;
+}
+
+    </style>
+    <header>
+        <div class="container">
+            <h1>Avis sur Rayna Gaming Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="siterayna.html">Accueil</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="avisclients.html">Avis</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!DOCTYPE html>
+<body>
+    <section class="avis-section">
+        <div class="container">
+            <h2>Donnez votre avis !</h2>
+            <p>Votre opinion compte beaucoup pour nous. Laissez-nous un commentaire ou un avis sur votre expérience de jeu ou sur nos produits !</p>
+            
+            <form id="form-avis" class="avis-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Note</label>
+                    <select id="rating" name="rating" required>
+                        <option value="1">1 - Très mauvais</option>
+                        <option value="2">2 - Mauvais</option>
+                        <option value="3">3 - Moyen</option>
+                        <option value="4">4 - Bon</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="review">Avis</label>
+                    <textarea id="review" name="review" required placeholder="Écrivez votre avis ici..." rows="5"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Soumettre</button>
+            </form>
+
+            
+            <div id="avis-list" class="avis-list">
+                <h3>Avis récents</h3>
+              
+            </div>
+        </div>
+    </section>
+    <script>
+       
+        document.getElementById('form-avis').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+            const avisItem = document.createElement('div');
+            avisItem.classList.add('avis-item');
+
+            avisItem.innerHTML = `
+                <p class="avis-name"><strong>${name}</strong> - <span class="avis-rating">${'⭐'.repeat(rating)}</span></p>
+                <p class="avis-text">${review}</p>
+            `;
+
+           
+            document.getElementById('avis-list').appendChild(avisItem);
+        });
+    </script>
+    <script>
+  
+        function loadAvis() {
+            const avisList = document.getElementById('avis-list');
+            const storedAvis = JSON.parse(localStorage.getItem('avis')) || [];
+            avisList.innerHTML = '<h3>Avis récents</h3>';
+            storedAvis.forEach(avis => {
+                const avisItem = document.createElement('div');
+                avisItem.classList.add('avis-item');
+                avisItem.innerHTML = `
+                    <p class="avis-name"><strong>${avis.name}</strong> - <span class="avis-rating">${'⭐'.repeat(avis.rating)}</span></p>
+                    <p class="avis-text">${avis.review}</p>
+                `;
+                avisList.appendChild(avisItem);
+            });
+        }
+
+        
+        document.getElementById('form-avis').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+            const newAvis = { name, rating, review };
+            const storedAvis = JSON.parse(localStorage.getItem('avis')) || [];
+            storedAvis.push(newAvis);
+            localStorage.setItem('avis', JSON.stringify(storedAvis));
+            document.getElementById('form-avis').reset();
+            loadAvis();
+            document.getElementById('form-avis').reset();
+
+        });
+        window.onload = loadAvis;
+        document.getElementById('form-avis').reset();
+    </script>
+
+</body>
+</html>
+    <footer>
+        <p>&copy; 2025 Rayna Gaming Shop | Tous droits réservés</p>
+    </footer>
+
+</body>
+</html>

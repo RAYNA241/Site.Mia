@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur [Nom de la Chaîne] - Gaming & Vente</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 2px solid #00ffea;
+    font-size: 14px;
+}
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff9900;
+      color: rgb(255, 255, 255);
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0 8px rgb(255, 255, 255, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .cart-icon {
+      margin-right: 8px;
+    }
+
+    .cart-details {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background-color: rgb(232, 0, 162);
+      border: 1px solid #000000;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: none;
+      width: 250px;
+      z-index: 999;
+    }
+
+    .cart-details ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      max-height: auto;
+      overflow-y: auto;
+    }
+
+    .cart-details li {
+      padding: 5px 0;
+      border-bottom: 1px solid #000000;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .total {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #00ff00;
+            font-size: 3em;
+        }
+
+        .intro {
+            background-color: #222;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .intro p {
+            margin: 20px 0;
+        }
+
+        .cta {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .cta:hover {
+            background-color: #ff4500;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 10%;
+        }
+
+        .product {
+            background-color: #333;
+            border-radius: 8px;
+            width: 250px;
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #ff6600;
+            font-size: 1.5em;
+        }
+
+        .product p {
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        .footer {
+            background-color: #1f1f1f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cart" id="panier-draggable" onclick="toggleCartDetails()">
+  <span class="cart-icon">🛒</span>
+  <span id="cart-count">0</span>
+  </div>
+  <div class="cart-details" id="cart-details">
+    <strong>Articles sélectionnés :</strong>
+    <ul id="cart-items"></ul>
+    <div class="total">Total: <span id="cart-total">0.00</span> €</div>
+  </div>
+
+
+
+    <header>
+        <h1>Bienvenue sur rayna gaming shop</h1>
+        <p>Votre destination gaming ultime pour des critiques et les meilleurs produits à des prix incroyables !</p>
+    </header>
+
+    <section class="intro">
+        <h2>Prêt à améliorer ton expérience de jeu  avec nos produits en promo ?</h2>
+        <p>Des tests produits, des promotions exclusives et des conseils pour les gamers !</p>
+        <boutton class="cta">Découvrez nos produits en promos !</boutton>
+    </section>
+
+    <section class="products">
+        <div class="product">
+            <img src="controlador.png" alt="Casque Gaming">
+            <h3>Casque Gaming XYZ(-20%)</h3>
+            <p>Un son surround exceptionnel et un confort absolu pour vos sessions longues !</p>
+             <p><strong>Prix :</strong> 149€</p>
+    <button onclick="ajouterAuPanier('Produit 9 :', 149)">Ajouter au panier</button>
+        </div>
+        <div class="product">
+            <img src="manettte.png" alt="Manette Pro">
+            <h3>Manette Pro 3000(-30%)</h3>
+            <p>Précision et performance pour les joueurs sérieux. À un prix imbattable !</p>
+            <p><strong>Prix :</strong> 250€</p>
+    <button onclick="ajouterAuPanier('Produit 9 :', 250)">Ajouter au panier</button>
+        </div>
+        <div class="product">
+            <img src="bureau.png" alt="PC Gaming">
+            <h3>bureau gaming(-10%)</h3>
+            <p>Des performances de pointe pour les jeux AAA les plus exigeants.</p>
+             <p><strong>Prix :</strong> 2500€</p>
+    <button onclick="ajouterAuPanier('Produit 9 :', 2500)">Ajouter au panier</button>
+        </div>
+    </section>
+          <script>
+    let compteur = 0;
+    let panier = [];
+    let total = 0;
+     window.addEventListener('load', () => {
+    const panierSauvegarde = localStorage.getItem('monPanier');
+    if (panierSauvegarde) {
+      panier = JSON.parse(panierSauvegarde);
+      updateCartDisplay();
+    }
+  });
+  function ajouterAuPanier(nomProduit, prix) {
+    panier.push({ nom: nomProduit, prix: prix });
+    sauvegarderPanier();
+    updateCartDisplay();
+  }
+  function retirerDuPanier(index) {
+    if (index >= 0 && index < panier.length) {
+      panier.splice(index, 1);
+      sauvegarderPanier();
+      updateCartDisplay();
+    }
+  }
+    function updateCartDisplay() {
+      const liste = document.getElementById('cart-items');
+      const totalAffichage = document.getElementById('cart-total');
+      const compteur = document.getElementById('cart-count');
+      liste.innerHTML = '';
+      total = 0;
+      panier.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${item.nom}  ${item.prix.toFixed(2)} €</span>
+          <button1 class="remove-btn" onclick="retirerDuPanier(${index})">retirer</button1>
+        `;
+        liste.appendChild(li);
+        total += item.prix;
+      });
+      compteur.textContent = panier.length;
+      totalAffichage.textContent = total.toFixed(2);
+       liste.style.maxHeight = panier.length > 10 ? '200px' : 'none';
+        liste.style.overflowY = panier.length > 10 ? 'auto' : 'visible';
+      totalAffichage.innerText = total.toFixed(2);
+    }
+    function sauvegarderPanier() {
+    localStorage.setItem('monPanier', JSON.stringify(panier));
+    }
+
+    function toggleCartDetails() {
+      const details = document.getElementById('cart-details');
+      details.style.display = details.style.display === 'none' || details.style.display === '' ? 'block' : 'none';
+    }
+  (function() {
+  const panier = document.getElementById("panier-draggable");
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  panier.addEventListener("mousedown", function(e) {
+    isDragging = true;
+    offsetX = e.clientX - panier.getBoundingClientRect().left;
+    offsetY = e.clientY - panier.getBoundingClientRect().top;
+
+    document.body.style.userSelect = "none";
+  });
+
+  document.addEventListener("mousemove", function(e) {
+    if (isDragging) {
+      panier.style.top = `${e.clientY - offsetY}px`;
+      panier.style.left = `${e.clientX - offsetX}px`;
+      panier.style.right = "auto"; 
+      panier.style.position = "fixed";
+    }
+  });
+  document.addEventListener("mouseup", function() {
+    isDragging = false;
+    document.body.style.userSelect = "auto";
+  });
+    })();
+  </script>
+    <footer class="footer">
+        <p>&copy; 2025 rayna gaming shop | Tous droits réservés</p>
+    </footer>
+
+</body>
+</html>
